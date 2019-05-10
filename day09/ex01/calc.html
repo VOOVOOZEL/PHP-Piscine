@@ -1,0 +1,55 @@
+<html>
+    <script>
+    function myTimer() {
+        alert('Please, use me...');
+    }
+
+    var myVar = setInterval(myTimer, 30000);
+
+    function calc() {
+        var first_num = parseInt(document.getElementsByClassName("number")[0].value, 10);
+        var second_num = parseInt(document.getElementsByClassName("number")[1].value, 10);
+        var selector = document.getElementById('sign');
+        var sign = selector[selector.selectedIndex].text;
+        var res = 0;
+
+        if (first_num < 0 || second_num < 0){
+            alert('Error :(');
+            return;
+        }
+
+        if (sign == "+")
+            res = first_num + second_num;
+        else if (sign == "-")
+            res = first_num - second_num;
+        else if (sign == "/") {
+            if (second_num == 0)
+                alert("It’s over 9000!");
+            else
+                res = first_num / second_num;
+        }
+        else if (sign == "*")
+            res = first_num * second_num;
+        else if (sign == "%") {
+            if (second_num == 0)
+                alert("It’s over 9000!");
+            else
+                res = first_num % second_num;
+        }
+        console.log(res);
+        alert(res);
+    }
+    </script>
+    <body>
+        <input type="number" class="number">
+        <select id="sign" class="sign1">
+            <option value="0">+</option>
+            <option value="1">-</option>
+            <option value="2">*</option>
+            <option value="3">/</option>
+            <option value="4">%</option>
+        </select>
+        <input type="number" class="number">
+        <input type="submit" value="Try me!" onclick="calc()">
+    </body>
+</html>
